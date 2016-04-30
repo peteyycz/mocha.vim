@@ -1,0 +1,32 @@
+*mocha.txt* Plugin for interacting with Mocha tests
+
+Author:  Peter Czibik
+
+|mocha-introduction|            Introduction and Feature Summary
+|mocha-commands|                General Commands
+|mocha-about|                   About rails.vim
+|mocha-license|                     License
+
+INTRODUCTION          *mocha-introduction* *mocha*
+
+This plugin makes editing mocha tests a more pleasureable experience.
+
+GENERAL COMMANDS        *mocha-commands*
+
+All commands are global.
+
+            *mocha-:ToggleOnly*
+:ToggleOnly  Toggles the nearest test block exclusive
+
+ABOUT         *mocha-about* *mocha-plugin-author*
+
+Bugs can be reported and the very latest development version can be retrieved
+from GitHub:
+  https://github.com/peteyy/mocha.vim >
+  git clone git://github.com/peteyy/mocha.vim.git
+<
+            *mocha-license*
+Copyright (c) Peter Czibik.  Distributed under the same terms as Vim itself.
+See |license|.
+
+ vim:tw=78:ts=8:ft=help:norl:
