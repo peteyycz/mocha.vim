@@ -2,13 +2,20 @@
 " Author:       Peter Czibik
 
 function! mocha#toggle_only ()
-  let s:save_cursor = getpos('.')
-  call search('describe', 'bW')
-  let blockFirstLine = getline('.')
-  if (blockFirstLine =~ '\.only')
-    call setline('.', substitute(blockFirstLine, '\.only', '', 'g'))
-  else
-    call setline('.', substitute(blockFirstLine, 'describe', 'describe.only', 'g'))
+  let save_cursor = getpos('.')
+
+  let blockLineNum = search('\(describe\|it\)', 'bW')
+  let hasOnly = getline('.') =~ '\.only'
+
+  call s:gloal_remove_only()
+
+  if (!hasOnly)
+    exec(blockLineNum . 'substitute/\(describe\|it\)/\1.only/e')
   endif
-  call setpos('.', s:save_cursor)
+
+  call setpos('.', save_cursor)
+endfunction
+
+function! s:gloal_remove_only ()
+  %substitute/\.only//e
 endfunction
