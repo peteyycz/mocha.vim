@@ -3,7 +3,7 @@
 
 function! mocha#toggle_only ()
   let save_cursor = getpos('.')
-  let blockLineNum = search('\(describe\|it\)', 'bnW')
+  let blockLineNum = search('^\s*describe\|it\(.only\)\?(', 'bnW')
 
   if (blockLineNum)
     let hasOnly = getline(blockLineNum) =~ '\.only'
