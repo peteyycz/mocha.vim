@@ -3,27 +3,28 @@
 
 let g:mocha#block_separators = ['describe', 'it']
 
-function! s:get_separator_regex ()
-  return join(g:mocha#block_separators, '\|')
+function! s:get_separator_pattern ()
+  return '\(' . join(g:mocha#block_separators, '\|') . '\)'
 endfunction
 
 function! mocha#toggle_only ()
   let save_cursor = getpos('.')
 
-  if (getline('.') =~ s:get_separator_regex())
-    let blockLineNum = line('.')
+  let separator_line_pattern = '^\s*' . s:get_separator_pattern()
+        \ . '\(.only\)\?('
+
+  if (getline('.') =~ separator_line_pattern)
+    let block_line_num = line('.')
   else
-    let blockLineNum = search(
-          \ '^\s*' . s:get_separator_regex() . '\(.only\)\?(',
-          \ 'bnW')
+    let block_line_num = search(separator_line_pattern, 'bnW')
   endif
 
-  if (blockLineNum)
-    let hasOnly = getline(blockLineNum) =~ '\.only'
+  if (block_line_num)
+    let has_only = getline(block_line_num) =~ '\.only'
     call s:gloal_remove_only()
-    if (!hasOnly)
-      call setline(blockLineNum, substitute(getline(blockLineNum),
-            \ '\(' . s:get_separator_regex() . '\)', '\1.only', ''))
+    if (!has_only )
+      call setline(block_line_num, substitute(getline(block_line_num),
+            \ '\(' . s:get_separator_pattern() . '\)', '\1.only', ''))
     endif
     call setpos('.', save_cursor)
   endif
