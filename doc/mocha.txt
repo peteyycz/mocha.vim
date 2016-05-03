@@ -16,7 +16,10 @@ GENERAL COMMANDS        *mocha-commands*
 All commands are global.
 
             *mocha-:ToggleOnly*
-:ToggleOnly  Toggles the nearest test block exclusive
+:ToggleOnly  Toggles exclusive the nearest describe or it block
+
+            *mocha-:ToggleSkip*
+:ToggleSkip  Toggles skip the nearest describe or it block
 
 ABOUT         *mocha-about* *mocha-plugin-author*
 

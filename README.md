@@ -16,8 +16,13 @@ Plug 'peteyy/mocha.vim'
 
 - ToggleOnly:
 
-toggles nearest describe block exclusive
+toggles exclusive the nearest describe or it block
+
+- ToggleSkip:
+
+toggles skip on nearest describe or it block
 
 ## TODO / Ideas
 
+- create proper only and skip rules
 - create test text object
