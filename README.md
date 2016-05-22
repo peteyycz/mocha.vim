@@ -22,7 +22,14 @@ toggles exclusive the nearest describe or it block
 
 toggles skip on nearest describe or it block
 
+- FocusNextTest
+
+jumps to the next describe or it block
+
+- FocusPreviousTest
+
+jumps to the previous describe or it block
+
 ## TODO / Ideas
 
-- create proper only and skip rules
 - create test text object

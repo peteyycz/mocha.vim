@@ -13,6 +13,11 @@ function! s:get_separator_line_pattern ()
           \ . '\(.\(' . s:get_separator_pattern(g:mocha#tokens) . '\)\?\)*'
 endfunction
 
+function! mocha#goto_separator (search_flags)
+  call search(s:get_separator_line_pattern(), a:search_flags . 'W')
+  normal zt
+endfunction
+
 function! s:get_matching_block_linenumber (pattern)
   if (getline('.') =~ a:pattern)
     return line('.')

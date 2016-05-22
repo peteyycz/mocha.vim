@@ -21,6 +21,12 @@ All commands are global.
             *mocha-:ToggleSkip*
 :ToggleSkip  Toggles skip the nearest describe or it block
 
+            *mocha-:FocusNextTest*
+:FocusNextTest  Jumps to the next describe or it block
+
+            *mocha-:FocusPreviousTest*
+:FocusPreviousTest  Jumps to the previous describe or it block
+
 ABOUT         *mocha-about* *mocha-plugin-author*
 
 Bugs can be reported and the very latest development version can be retrieved
