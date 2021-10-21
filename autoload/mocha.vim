@@ -1,7 +1,7 @@
 " plugin/mocha.vim
 " Author:       Peter Czibik
 
-let g:mocha#block_separators = ['describe', 'it']
+let g:mocha#block_separators = ['describe', 'suite', 'test', 'it']
 let g:mocha#tokens = ['skip', 'only']
 
 function! s:get_separator_pattern (options)
